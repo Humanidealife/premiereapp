@@ -31,7 +31,8 @@ public class ByeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        out.print("<HTML><BODY>Au revoir de la première Servlet</BODY></HTML>");
     }
 
 }
