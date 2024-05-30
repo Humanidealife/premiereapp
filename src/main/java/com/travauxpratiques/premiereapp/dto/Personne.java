@@ -20,6 +20,10 @@ public class Personne {
     public Personne() {
     }
 
+    public String nomEntier(){
+        return prenom + " " + nom;
+    }
+    
     public String getNom() {
         return nom;
     }
