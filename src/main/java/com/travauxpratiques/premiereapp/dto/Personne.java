@@ -21,7 +21,7 @@ public class Personne {
     }
 
     public String nomEntier(){
-        return prenom + " " + nom;
+        return nom + " " + prenom;
     }
     
     public String getNom() {

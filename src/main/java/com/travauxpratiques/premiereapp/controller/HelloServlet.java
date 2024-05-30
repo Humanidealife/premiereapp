@@ -4,6 +4,7 @@
  */
 package com.travauxpratiques.premiereapp.controller;
 
+import com.travauxpratiques.premiereapp.dto.Personne;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +23,8 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
-        out.print("<HTML><BODY>Bonjour de la première Servlet</BODY></HTML>");
+        Personne auboisAnna = new Personne ("Aubois","Anna");
+        out.print("<HTML><BODY>Bonjour " + auboisAnna.nomEntier() + "</BODY></HTML>");
     }
     
 }
