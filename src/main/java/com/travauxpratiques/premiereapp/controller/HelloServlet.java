@@ -26,7 +26,7 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         Personne auboisAnna = new Personne ("Aubois","Anna");
         PersonneInvitee buissonBrice = new PersonneInvitee ("Buisson", "Brice");
-        out.print("<HTML><BODY>Bonjour " + auboisAnna.nomEntier() + " et " + buissonBrice.nomEntier() + "</BODY></HTML>");
+        out.print("<HTML><BODY>Bonjour " + auboisAnna.nomEntier() + " et bienvenue à " + buissonBrice.nomEntier() + "</BODY></HTML>");
     }
     
 }
