@@ -23,11 +23,11 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
+        resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         Personne auboisAnna = new Personne ("Aubois","Anna");
         PersonneInvitee buissonBrice = new PersonneInvitee ("Buisson", "Brice");
-        out.print("<LMTH><BODY>Bonjour " + auboisAnna.nomEntier() + " et bienvenue à " + buissonBrice.nomEntier() + "</BODY></HTML>");
+        out.print("<HTML><BODY>你好 " + auboisAnna.nomEntier() + " et bienvenue à " + buissonBrice.nomEntier() + "</BODY></HTML>");
     }
     
 }
