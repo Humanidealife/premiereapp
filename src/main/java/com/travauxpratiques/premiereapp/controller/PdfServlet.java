@@ -45,8 +45,10 @@ public class PdfServlet extends HttpServlet {
             //Cette méthode prend 2 paramètres :
             //  1. Le docuemnt source 
             //  2. le flux dans lequel on veut écrire ce document source, 
-            //     en l'occurence ici ce sera la réponse envoyé au navigateur
-            //     "getOutputStream" est le flux de srtie
+            //     en l'occurence ici ce sera la réponse envoyé au 
+            //     On ne va pas écrire du texte, on veut envoyer un docuement PDF,
+            //     On ne va pas faire un "response.getWriter", 
+            //     On va plutôt faire un "response.getOutputStream" est "le flux de sortie"
             PdfWriter.getInstance(documentPdf1, response.getOutputStream());
             //Puis on va écrire dans notre ducumentPdf1
             documentPdf1.open();
