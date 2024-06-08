@@ -32,7 +32,26 @@ public class Somme extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html");
+        
+        //On va ouvrir un "PrintWriter" pour écrire dans la réponse
+        PrintWriter out = response.getWriter();
+        //On va écrire quelque chose
+        //Pour récupérer un paramètre, il faut utiliser la "request"(requête)
+        //La Class HttpServletRequest bénéficie d'une méthode "getParameter", 
+        //  on va passer ici en argument le nom du paramètre
+        //Cette méthode "request.getParameter" va systématiquement retourner une String
+        //On sait que l'on a mis dans nombre1 et nombre2 des chiffres, mais la méthode "getParameter" ne peut pas le savoir
+        //On va stocker la valeur du paramètre dans une variable de type de String 
+        String nombre1 = request.getParameter("nombre1");
+        String nombre2 = request.getParameter("nombre2");
+        //On va devoir convertir ces deux varaibles pour en obtenir la somme
+        
+        
+        //on va créer une variable "somme" et on fait la somme des deux paramètres que l'on reçoit
+        int somme = Integer.parseInt(nombre1) + Integer.parseInt(nombre2);
+        out.print("<HTML><BODY>La somme des deux nombres fournis est "+ somme +" </BODY></HTML>");
+        
     }
 
     /**
