@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
                     <body>
                         <!-- On va afficher à l'utilisteur  -->
                          Vous êtes bien connecté(e) avec l'identifiant "%s" et le mot de passe "%s" ! <br>
-                        <a href="home">Cliquer ici pour retourner à la page d'accueil</a>
+                        <a href="index.html">Cliquer ici pour retourner à la page d'accueil</a>
                     </body>
                 </html>
                                  """.formatted(login, password);
