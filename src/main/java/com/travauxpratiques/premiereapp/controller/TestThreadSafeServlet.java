@@ -26,6 +26,7 @@ public class TestThreadSafeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         //Ici on détermine le montant que l'utilisateur souhaite retirer en récupérant un paramètre nommé "montant"
         montant = request.getParameter("montant");
         //Ce code fait une pause à l'exécution pendant 10 secondes. 
