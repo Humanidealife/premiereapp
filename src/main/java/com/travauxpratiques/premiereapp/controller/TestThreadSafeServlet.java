@@ -21,14 +21,16 @@ import java.util.logging.Logger;
 @WebServlet(name = "TestThreadSafeServlet", urlPatterns = {"/testThread"})
 public class TestThreadSafeServlet extends HttpServlet {
 
-    String montant;
+    //Cette déclaration crée une variable s'instance
+    //String montant;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //Ici on détermine le montant que l'utilisateur souhaite retirer en récupérant un paramètre nommé "montant"
-        montant = request.getParameter("montant");
+        //Ici on crée une variable locale qui appartient à la méthode "doGet"
+        String montant = request.getParameter("montant");
         //Ce code fait une pause à l'exécution pendant 10 secondes. 
         try {
             //Cela signifie que l'on souhaite que le processus d'exécution courant fasse une pause de 10000 millisecondes = 10 secondes
