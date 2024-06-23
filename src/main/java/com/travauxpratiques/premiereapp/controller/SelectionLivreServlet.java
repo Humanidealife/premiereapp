@@ -35,11 +35,18 @@ public class SelectionLivreServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //On peut ajouter une "session utilisateur" en écrivant tout simplement "request.getSession()" 
+        //dans la méthode de Servlet qui nous intéresse. 
+        //Là on demande au Serveur de démarrer le suivi de la session utilisateur
+        //Pour connaitre le numéro de cette session, on peut faire
+        String numeroSession = request.getSession().getId();
         //On récupère l'id du livre ici avec un "request.getParameter"
         String identifiantLivre = request.getParameter("id");
         PrintWriter out = response.getWriter();
         //On se contente d'afficher l'"id" du livre sélectionné
         out.print("<html><body> Merci d'avoir choisi le livre "+ identifiantLivre + "<br>");
+        //On ajout une ligne afin d'afficher le numéro de session utilisateur
+        out.print("Le numéro de session utilisateur est : " + numeroSession + "<br>");
         out.print("<a href=\"payer-livre.html\">Cliquer ici pour payer</a></body><html>");
     }
 
