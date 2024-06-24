@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -23,10 +24,13 @@ public class PayerLivreServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //La variable "sessionSLS" et la variable "sessionPLS" ont la même valeur, puisque c'est toujours le même Objet de type
+        //  HttpSession qui est en question. 
+        HttpSession sessionPLS = request.getSession();
         //Si l'on fait anouveau un "request.getSession()", on ne va pas regénérer un nouveau numéro de Session. 
         //  On va juste retrouver notre numéro de Session d'origine.
         //On peut essayer de vérifier en récupérant à nouveau ce numéro de Session
-        String numeroSessionPLS = request.getSession().getId();
+        String numeroSessionPLS = sessionPLS.getId();
         //On récupère le numéro de carte saisi dans le formulaire
         String numeroCarte = request.getParameter("numeroCarte");
         PrintWriter out = response.getWriter();
