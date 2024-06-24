@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -35,11 +36,16 @@ public class SelectionLivreServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //On crée une variable de type "HttpSession" dans laquelle on stocke le résultat de l'appel "request.getSession"
+        //  On doit importer la Class "HttpSession"
+        HttpSession sessionSLS = request.getSession();
         //On peut ajouter une "session utilisateur" en écrivant tout simplement "request.getSession()" 
         //dans la méthode de Servlet qui nous intéresse. 
         //Là on demande au Serveur de démarrer le suivi de la session utilisateur
         //Pour connaitre le numéro de cette session, on peut faire
-        String numeroSession = request.getSession().getId();
+        //Après avoir ajouté la variable "sessionSLS" on peut la réutiliser dans notre code ci-dessous
+        //  pour remplacer "request.getSession"
+        String numeroSession = sessionSLS.getId();
         //On récupère l'id du livre ici avec un "request.getParameter"
         String identifiantLivre = request.getParameter("id");
         PrintWriter out = response.getWriter();
