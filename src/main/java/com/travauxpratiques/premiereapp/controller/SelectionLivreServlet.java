@@ -48,6 +48,12 @@ public class SelectionLivreServlet extends HttpServlet {
         String numeroSession = sessionSLS.getId();
         //On récupère l'id du livre ici avec un "request.getParameter"
         String identifiantLivre = request.getParameter("id");
+        //Après avoir récupérer l'"id" du livre, on peut ajouter 
+        //"setAttribute()" va nous permettre d'ajouter un attribut en Session 
+        //  avec une "clé"(qui est complètement libre)
+        //  et une "valeur"(complètement libre également), ici on reprend la String "identifiantLivre" qui est juste au-dessus
+        //Cette information est désormais en Session, on peut la récupérer à tout moment, par exemple dans une ature Servlet
+        sessionSLS.setAttribute("identifiantLivre", identifiantLivre);
         PrintWriter out = response.getWriter();
         //On se contente d'afficher l'"id" du livre sélectionné
         out.print("<html><body> Merci d'avoir choisi le livre "+ identifiantLivre + "<br>");
