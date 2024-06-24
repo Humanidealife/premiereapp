@@ -33,9 +33,14 @@ public class PayerLivreServlet extends HttpServlet {
         String numeroSessionPLS = sessionPLS.getId();
         //On récupère le numéro de carte saisi dans le formulaire
         String numeroCarte = request.getParameter("numeroCarte");
+        //On récupère ici l'information "id" du livre qui est stockée dans la Session
+        //  Cette fois on doit utiliser la méthode "getAttribute()" avec le nom("clé") que l'on a choisi pour stocké cette "valeur".
+        String identifiantLivre = (String)sessionPLS.getAttribute("identifiantLivre");
         PrintWriter out = response.getWriter();
         //On affiche tout simplement le message suivant
         out.print("<html><body>Paiement effectué avec la carte du numéro " + numeroCarte + "<br>");
+        //On affiche donc ici l'"id" du livre qui vient d'être acheté afin de confirmer le bon fonctionnement à l'utilisateur
+        out.print("Votre achat pour le livre du numéro " + identifiantLivre + " est finalisé avec succès ! <br>" );
         //On affiche ce numéro récuéré ici
         out.print("Le numéro de session est: " + numeroSessionPLS + "<br>");
         out.print("</body><html>");
