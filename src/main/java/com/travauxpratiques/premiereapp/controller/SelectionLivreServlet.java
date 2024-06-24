@@ -45,7 +45,7 @@ public class SelectionLivreServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         //On se contente d'afficher l'"id" du livre sélectionné
         out.print("<html><body> Merci d'avoir choisi le livre "+ identifiantLivre + "<br>");
-        //On ajout une ligne afin d'afficher le numéro de session utilisateur
+        //On ajoute une ligne afin d'afficher le numéro de session utilisateur
         out.print("Le numéro de session utilisateur est : " + numeroSession + "<br>");
         out.print("<a href=\"payer-livre.html\">Cliquer ici pour payer</a></body><html>");
     }
