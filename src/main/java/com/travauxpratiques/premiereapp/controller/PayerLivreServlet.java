@@ -38,7 +38,7 @@ public class PayerLivreServlet extends HttpServlet {
         String identifiantLivre = (String)sessionPLS.getAttribute("identifiantLivre");
         
         //On ajoute ici la suppression des infos sur le livre sélectionné une fois que le livre soit payé.
-        //On peut avoir dfeux manière de réaliser cette suppression.
+        //On peut avoir deux manières de réaliser cette suppression.
         //1. On fait "setAttribute()" pour reprendre la "clé" de l'attribut que l'on veut supprimer de la Session:
         //  on reprend la clé de la "sessionPLS" qui est "identifiantLivre", puis on lui affecte la valeur "null".
         /*sessionPLS.setAttribute("identifiantLivre", null);*/
@@ -57,7 +57,7 @@ public class PayerLivreServlet extends HttpServlet {
         //  on éteint l'ordinateur, le Serveur n'en a absolument pas conscience et les informations vont rester stocker sur le Serveur pendant un certain temps. Ce n'est pas 
         //  éternel, parce que là ça va entrer en jeu un délais (ou un "timeout"), au terme duquel le Serveur va décider de supprimer de lui-même notre Session. 
         //Ce délais repart à 0 à chaque fois que l'on contacte le Serveur, à chaque fois que l'on dit au Serveur que l'on continue à travailler avec lui, comme quand l'on y 
-        //  met une requête. C'est donc un délai d'inactivité qui va entrer en jeu, ce délais sur Tomcat sera de 30 minutes. Autrement dit, si pendant 30 minutes on ne fait rien,
+        //  met une requête. C'est donc un délai d'inactivité qui va entrer en jeu, ce délai sur Tomcat sera de 30 minutes. Autrement dit, si pendant 30 minutes on ne fait rien,
         //  ou plus précisément si pendant 30 minutes on n'interagit pas avec le Serveur, et bien on perd notre Session. Et si l'on reprend notre activité après 30 minutes,
         //  et bien le Serveur doit initier une nouvelle Session.
         
