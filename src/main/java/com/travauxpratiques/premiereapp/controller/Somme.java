@@ -52,6 +52,10 @@ public class Somme extends HttpServlet {
         int somme = Integer.parseInt(nombre1) + Integer.parseInt(nombre2);
         out.print("<HTML><BODY>La somme des deux nombres fournis est "+ somme +" </BODY></HTML>");
         
+        //Si les entrées dans les champs de saisie ne sont pas des "integer", on va passer la main à une autre ressource
+        //  qui va se contenter d'afficher le message générique "Erreur inattendue, opération annulée" et on va commencer à utiliser
+        //  une page HTML pour ceci. 
+        
     }
 
     /**
