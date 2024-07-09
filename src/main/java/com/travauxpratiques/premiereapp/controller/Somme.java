@@ -4,6 +4,7 @@
  */
 package com.travauxpratiques.premiereapp.controller;
 
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -48,23 +49,33 @@ public class Somme extends HttpServlet {
         //On va devoir convertir ces deux varaibles pour en obtenir la somme
         
         
-        //on va créer une variable "somme" et on fait la somme des deux paramètres que l'on reçoit
-        int somme = Integer.parseInt(nombre1) + Integer.parseInt(nombre2);
-        out.print("<HTML><BODY>La somme des deux nombres fournis est "+ somme +" </BODY></HTML>");
+        //on va créer une variable "Somme" et on fait la somme des deux paramètres que l'on reçoit
         
+        //On va intercepter des erreurs de conversion. L'erreur va être générée lorsque "Integer.parseInt" reçoit ici
+        //  le "nombre1" ou le "nombre2" qui n'est pas convertible en numérique.
+        //On va mettre un grand bloc de "try" "catch" autours de cette partie
+        
+        try{
+            int somme = Integer.parseInt(nombre1) + Integer.parseInt(nombre2);
+            out.print("<HTML><BODY>La somme des deux nombres fournis est "+ somme +" </BODY></HTML>");
+        }
+        //Il va s'agir d'attraper une erreur de type "NumberFormatException"
+        catch(NumberFormatException nfe){
+            //Maintenant pour passer la main à une autre ressource, on va utiliser une nouvelle Class qui s'appelle : "RequestDispatcher"(à importer).
+            //Pour obtenir cette "RequestDispatcher" on va utiliser "request.getRequestDispatcher"
+            //Ce que l'on va mettre entre parenthèses correspond au chemin de la Ressource vers laquelle on veut aller.
+            //Cela commence généralement par un "/" qui positionne à la racine des Ressources que l'on sert juste après le "context path", 
+            //  c'est-à-dire juste après "premiereapp"
+            RequestDispatcher disp = request.getRequestDispatcher("/unexpected-error.html");
+            //Pour réellement se déplacer vers cette Ressource, on va invoquer la méthode "forward" de cette Class "RequestDispatcher",
+            //  "forward" prend en paramètres "request" et "response" qui vont correspondre à l'Objet de type "request" et l'Objet de type "response",
+            //  que le Moteur de Servlet a fournis à notre Servlet.
+            disp.forward(request, response);
+        }
         //Si les entrées dans les champs de saisie ne sont pas des "integer", on va passer la main à une autre ressource
         //  qui va se contenter d'afficher le message générique "Erreur inattendue, opération annulée" et on va commencer à utiliser
         //  une page HTML pour ceci. 
         
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
 
 }
