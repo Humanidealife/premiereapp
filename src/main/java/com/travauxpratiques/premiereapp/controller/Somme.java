@@ -66,7 +66,7 @@ public class Somme extends HttpServlet {
             //Ce que l'on va mettre entre parenthèses correspond au chemin de la Ressource vers laquelle on veut aller.
             //Cela commence généralement par un "/" qui positionne à la racine des Ressources que l'on sert juste après le "context path", 
             //  c'est-à-dire juste après "premiereapp"
-            RequestDispatcher disp = request.getRequestDispatcher("/unexpected-error.html");
+            RequestDispatcher disp = request.getRequestDispatcher("/unexpected-error");
             //Pour réellement se déplacer vers cette Ressource, on va invoquer la méthode "forward" de cette Class "RequestDispatcher",
             //  "forward" prend en paramètres "request" et "response" qui vont correspondre à l'Objet de type "request" et l'Objet de type "response",
             //  que le Moteur de Servlet a fournis à notre Servlet.
