@@ -33,7 +33,7 @@ public class Somme extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
         
         //On va ouvrir un "PrintWriter" pour écrire dans la réponse
         PrintWriter out = response.getWriter();
