@@ -66,7 +66,7 @@ public class PdfServlet extends HttpServlet {
                 message = "La somme des deux nombres est "+ somme;
             }
             else{
-                message = "Bonus, tu m'as trouvé, bravo !";
+                message = "Bonjour, ceci est une page en format PDF.";
             }
             //Dedans on peut écrire ce que l'on veut, avec la Class "Paragraph" importée
             documentPdf1.add(new Paragraph(message));
