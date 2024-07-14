@@ -33,10 +33,7 @@ public class Somme extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        //On va ouvrir un "PrintWriter" pour écrire dans la réponse
-        PrintWriter out = response.getWriter();
+
         //On va écrire quelque chose
         //Pour récupérer un paramètre, il faut utiliser la "request"(requête)
         //La Class HttpServletRequest bénéficie d'une méthode "getParameter", 
@@ -57,7 +54,20 @@ public class Somme extends HttpServlet {
         
         try{
             int somme = Integer.parseInt(nombre1) + Integer.parseInt(nombre2);
+            //Avant de faire tout, on doit vérifier si l'on a reçu ou pas le paramètre "format".
+            String format = request.getParameter("format");
+            if (format!=null && format.equals("pdf")){
+                //Dans ce cas-là, on va faire un "forward" vers la Servlet "PdfServlet" qui a l'URL pour "/pdf"
+                RequestDispatcher dispPdf = request.getRequestDispatcher("/pdf");
+                dispPdf.forward(request, response);
+            }
+            //Mais dans le cas contraire, lorsque le format ne vaut pas "pdf", on va écrire la somme en format HTML
+            else{
+            response.setContentType("text/html;charset=UTF-8");
+            //On va ouvrir un "PrintWriter" pour écrire dans la réponse
+            PrintWriter out = response.getWriter();
             out.print("<HTML><BODY>La somme des deux nombres fournis est "+ somme +" </BODY></HTML>");
+            }
         }
         //Il va s'agir d'attraper une erreur de type "NumberFormatException"
         catch(NumberFormatException nfe){
