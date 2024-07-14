@@ -32,6 +32,7 @@ public class PdfServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    //La Servlet « PdfServlet » répond en « doGet », cela tombe bien, car notre Servlet « Somme » répond également en « doGEt ». 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/pdf");
@@ -52,8 +53,23 @@ public class PdfServlet extends HttpServlet {
             PdfWriter.getInstance(documentPdf1, response.getOutputStream());
             //Puis on va écrire dans notre ducumentPdf1
             documentPdf1.open();
+            //On va d'abord vérifier s'il s'agit pas d'écrire autre chose.
+            //Les attributs stockés dans les "scopes" sont stockés sous forme d'Objet grâce à l'auto-boxing "int" est devenu "Integer"
+            //On va créer une varaible de type Integer et 
+            //  on est le seul à savoir que la "valeur" "somme" dans la "request" est un Integer
+            Integer somme = (Integer)request.getAttribute("somme");
+            //On va créer une variable de type String
+            String message;
+            //On va dire que si la somme existe,
+            
+            if (somme != null ){
+                message = "La somme des deux nombres est "+ somme;
+            }
+            else{
+                message = "Bonus, tu m'as trouvé, bravo !";
+            }
             //Dedans on peut écrire ce que l'on veut, avec la Class "Paragraph" importée
-            documentPdf1.add(new Paragraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "));
+            documentPdf1.add(new Paragraph(message));
             //Puis il suffit de terminer par
             documentPdf1.close();
         } catch (Exception e) {
