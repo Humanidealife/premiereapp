@@ -58,6 +58,14 @@ public class Somme extends HttpServlet {
             String format = request.getParameter("format");
             if (format!=null && format.equals("pdf")){
                 //Dans ce cas-là, on va faire un "forward" vers la Servlet "PdfServlet" qui a l'URL pour "/pdf"
+                //La "portée" "request" c'est aussi l'Objet "request" que l'on connaissait déjà.
+                //  On appelle cet attribut avec la clé "somme" également, dans lequel on va stocker 
+                //      le résultat de la variable "int"somme
+                //Attention ! Ne pas confondre un attribut et un paramètre ! 
+                //  Un attribut est donc ce qui est stocké sur le Serveur associé à l'Objet "request".
+                //  Un paramètre est ce qui est envoyé du Navigateur à notre Serveur
+                //Voilà, on a fait un "setAttribut" dans la première Servlet
+                request.setAttribute("somme", somme);
                 RequestDispatcher dispPdf = request.getRequestDispatcher("/pdf");
                 dispPdf.forward(request, response);
             }
