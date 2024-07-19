@@ -4,7 +4,7 @@
     Author     : wangq
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/plain" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
