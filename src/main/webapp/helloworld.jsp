@@ -21,8 +21,10 @@
             int nombre = 555;
             if (nombre ==555){
                 %>
-                <!-- En considérant un peu implicitement que « out » est le « PrintWriter » que l’on utilisait dans les Servlet.  -->
-                Ce texte est affiché uniquement si ma variable vaut <%out.print(nombre);%>.
+                <!-- En considérant un peu implicitement que « out » est le « PrintWriter » que l’on utilisait dans les Servlet. 
+                Mais on a aussi un raccourci avec "=nombre"
+                -->
+                Ce texte est affiché uniquement si ma variable vaut <%=nombre%>.
                 <%
             }
         %>
