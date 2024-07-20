@@ -4,7 +4,7 @@
     Author     : wangq
 --%>
 
-<%@page contentType="text/plain" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,5 +13,18 @@
     </head>
     <body>
         <h1>Bonjour le monde !</h1>
+        <!-- On va déclarer une variable
+        On va également pouvoir utiliser des structures de contrôle, et on va pouvoir arrêter le bloc de code Java, ici dans 
+        une condition, pour ajouter du code HTML conditionnel. On a donc deux sections de code Java
+        -->
+        <%
+            int nombre = 555;
+            if (nombre ==555){
+                %>
+                Ce texte est affiché uniquement si ma variable vaut 555.
+                <%
+            }
+        %>
+        
     </body>
 </html>
