@@ -18,7 +18,9 @@
         une condition, pour ajouter du code HTML conditionnel. On a donc deux sections de code Java
         -->
         <%
-            int nombre = 555;
+            //En imaginant que l'utilisateur fournisse ce paramètre dans l'URL
+            //On peut voir que cette variable "request" est reconnue, notre IDE ne s'en plaint pas. 
+            int nombre = Interger.parseInt(request.getParameter("nombre"));
             if (nombre ==555){
                 %>
                 <!-- En considérant un peu implicitement que « out » est le « PrintWriter » que l’on utilisait dans les Servlet. 
