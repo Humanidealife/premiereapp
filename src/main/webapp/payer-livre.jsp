@@ -16,7 +16,7 @@
         Ce "numeroCarte" arrivait avec les paramètres de la requête.
         "identifiantLivre" est un attribut de "scope" Session("identifiantLivre")
         -->
-        Paiement effectué avec la carte du numéro <%=request.getParameter("numeroCarte");%><br>
+        Paiement effectué avec la carte du numéro <%=request.getParameter("numeroCarte")%><br>
         Votre achat pour le livre du numéro ${sessionScope.identifiantLivre} est finalisé avec succès ! <br>
 
     </body>
