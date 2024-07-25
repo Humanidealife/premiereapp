@@ -21,7 +21,7 @@
         Ce que l’on veut c’est afficher la valeur de sa propriété au format JavaBeans qui s’appelle « numeroLivre ».
         Pour accéder à cette propriété qui dispose d’un « getter », on va simplement utiliser ce que l’on appelle la notation pointée, 
           c’est-à-dire rajouter encore un point et puis écrire « numeroLivre ».  -->
-        Votre achat pour le livre du numéro ${sessionScope.livre.numeroLivre} est finalisé avec succès ! <br>
+        Votre achat pour le livre numéro ${sessionScope.livre.numeroLivre} est finalisé avec succès ! <br>
 
     </body>
 </html>
