@@ -4,6 +4,7 @@
  */
 package com.travauxpratiques.premiereapp.controller;
 
+import com.travauxpratiques.premiereappcore.Livre;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -53,7 +54,12 @@ public class SelectionLivreServlet extends HttpServlet {
         //  avec une "clé"(qui est complètement libre)
         //  et une "valeur"(complètement libre également), ici on reprend la String "identifiantLivre" qui est juste au-dessus
         //Cette information est désormais en Session, on peut la récupérer à tout moment, par exemple dans une ature Servlet
-        sessionSLS.setAttribute("identifiantLivre", identifiantLivre);
+        
+        //Plutôt que de stocker l’« identifiantLivre » tel que sous forme de String, en Session on a stocker un Livre.
+        //On va créer une instance de livre
+        Livre livre = new Livre();
+        livre.setNumeroLivre(Integer.parseInt(identifiantLivre));
+        sessionSLS.setAttribute("livre", livre);
         PrintWriter out = response.getWriter();
         //On se contente d'afficher l'"id" du livre sélectionné
         out.print("<html><body> Merci d'avoir choisi le livre "+ identifiantLivre + "<br>");
