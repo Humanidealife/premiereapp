@@ -22,7 +22,8 @@
         <%
         //En imaginant que l'utilisateur fournisse ce paramètre dans l'URL
         //On peut voir que cette variable "request" est reconnue, notre IDE ne s'en plaint pas. 
-        int nombre = Integer.parseInt(request.getParameter("nombre"));
+        //int nombre = Integer.parseInt(request.getParameter("nombre"));
+        int nombre = 555;
         if (nombre ==555){
         %>
             <!-- En considérant un peu implicitement que « out » est le « PrintWriter » que l’on utilisait dans les Servlet. 
