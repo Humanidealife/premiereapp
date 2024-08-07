@@ -28,7 +28,7 @@
         Deuxième attribut est "var", avec un contenu qui est libre, qui va correspondre au nom de de la variable qui va recevoir
         successivement chacun des éléments de l'itération. 
         -->
-        <c:forEach items="${sessionScope.listelivres}" var="livre">
+        <c:forEach items="${sessionScope.listeLivres}" var="livre">
         <!-- Ce qui nous intéresse c’est un attribut qui s’appelle « livre » dans le « sessionScope ».
         Ce que l’on veut c’est afficher la valeur de sa propriété au format JavaBeans qui s’appelle « numeroLivre ».
         Pour accéder à cette propriété qui dispose d’un « getter », on va simplement utiliser ce que l’on appelle la notation pointée, 
@@ -37,7 +37,7 @@
         A chaque itération, on veut afficher le numéro du livre suivant.
         Le "$<>" va faire référence à l'élément de l'itération qui est le var = "livre"
         -->
-        Votre achat pour le livre numéro ${sessionScope.livre.numeroLivre} est finalisé avec succès ! <br>
+        Votre achat pour le livre numéro ${livre.numeroLivre} est finalisé avec succès ! <br>
         </c:forEach>
 
     </body>

@@ -71,7 +71,7 @@ public class SelectionLivreServlet extends HttpServlet {
         //On va imaginer que cela nous retourne une "List", on va le caster en "List", une liste de livres. Il faut importer "List" !
         //On va stocker tout cela dans une variable de type de "List" de livres. On appelle cette variable "liste".
 
-        List<Livre> liste = (List<Livre>)sessionSLS.getAttribute("listelivres");
+        List<Livre> liste = (List<Livre>)sessionSLS.getAttribute("listeLivres");
         //S'il s'agit de la première fois que l'on rentre dans cette Servlet, c'est donc le premier livre que l'on a choisi.
         //  Dans cette situation, liste est "null".
         //Dans ce cas-là, il faut créer cette Collection et la mettre en Session
