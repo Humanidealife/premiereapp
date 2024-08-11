@@ -75,7 +75,7 @@ public class Somme extends HttpServlet {
             }
             //Mais dans le cas contraire, lorsque le format ne vaut pas "pdf", on va écrire la somme en format HTML
             else{
-                RequestDispatcher dispPdf = request.getRequestDispatcher("/affichage-somme.jsp");
+                RequestDispatcher dispPdf = request.getRequestDispatcher("/WEB-INF/affichage-somme.jsp");
                 dispPdf.forward(request, response);
                 //response.setContentType("text/html;charset=UTF-8");
                 //On va ouvrir un "PrintWriter" pour écrire dans la réponse
