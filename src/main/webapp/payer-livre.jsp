@@ -39,6 +39,6 @@
         -->
         Votre achat pour le livre numéro ${livre.numeroLivre} est finalisé avec succès ! <br>
         </c:forEach>
-
+        <a href="choix-du-livre.html">Retourner à la liste des livres</a><br>
     </body>
 </html>
