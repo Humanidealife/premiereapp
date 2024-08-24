@@ -15,4 +15,14 @@
 //En gros, on va demander au navigateur de contacter une URL sans se préoccuper de ce qui est retourné (plus concrètement
 //  ce qui sera retourné par le navigateur ne doit pas remplacer le contenu actuel, il s'agira seulement avec Ajax de mettre
 //  à disposition deux JavaScript ce qui est retourné, libre à nous d'en faire ce que l'on veut).
-$("form").after(x);
+$(document).ready(function(){
+    $('input').last().on('click',function(){
+        $.ajax({
+          url: "somme",
+          data: $("form").serialize(),
+          success: function(result) {
+              $("form").after(result);
+          }
+        });
+    });
+});
