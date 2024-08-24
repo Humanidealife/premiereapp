@@ -26,7 +26,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 et on va donner comme "value = pdf"(c'est donc la valeur qui sera envoyée au Serveur si l'on coche la case !)
                 -->
                 Générer ce résultat en PDF : <input type="checkbox" name="format" value="pdf"><br>
-                <input type="submit" value="Résultat"/>
+                <!-- On a faire une petite simplification pour ne pas nous embrouiller.
+                        On remplace "submit" par "button". Cela ne veuT pas dire que l'on ne peut pas garder "submit",
+                        c'est juste un peu plus compliqué de garder "submit" pour l'écriture du code JavaScript.
+                -->
+                <input type="button" value="Résultat"/>
             </form>
         </div>
     </body>
