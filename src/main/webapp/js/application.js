@@ -21,6 +21,8 @@
 //  il est tout à fait possible que le navigateur commence par charger "application.js" sans avoir terminé de télécharger ses inombrables
 //  ".html" ou "jquery.min.js" (dans ce cas-là, l'application ne peut pas fonctionner).
 // "$(document).ready" va simplmement attendre que tout soit chargé avant d'effectuer ce qui suit (tout ce qui est dans les "ready()").
+
+/*
 $(document).ready(function(){
     //La fonction "function" fait quoi ?
     //$('input') signifie : jQuery donne-moi toutes les balise "input" qui se trouve dans le DOM(il y en a plusieurs).
@@ -44,5 +46,24 @@ $(document).ready(function(){
               $("form").after(result);
           }
         });
+    });
+});
+ */
+
+$(document).ready(function(){
+    $('input').last().on('click',function(){
+        if ($("input[name=format]").prop( "checked")===true){
+            $("form").submit();
+        }
+        else{
+            $.ajax({
+              url: "somme",
+              data: $("form").serialize(),
+              success: function(result) {
+                  $("p").remove();
+                  $("form").after(result);
+              }
+            });
+        }
     });
 });
