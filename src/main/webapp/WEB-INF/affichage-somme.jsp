@@ -6,4 +6,4 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<p>La somme des deux nombres fournis est ${requestScope.somme}</p>
+${requestScope.somme}
