@@ -59,7 +59,7 @@ public class Somme extends HttpServlet {
             
             //Pour appliquer le principe MVC, on met le Scope juste au-dessu de la condition "if" pour que cette opération de 
             //  stockage dans le Serveur soit faite das tous les cas (PDF ou HTML).
-            request.setAttribute("somme", somme);
+            
             if (format!=null && format.equals("pdf")){
                 //Dans ce cas-là, on va faire un "forward" vers la Servlet "PdfServlet" qui a l'URL pour "/pdf"
                 //La "portée" "request" c'est aussi l'Objet "request" que l'on connaissait déjà.
@@ -69,14 +69,18 @@ public class Somme extends HttpServlet {
                 //  Un attribut est donc ce qui est stocké sur le Serveur associé à l'Objet "request".
                 //  Un paramètre est ce qui est envoyé du Navigateur à notre Serveur
                 //Voilà, on a fait un "setAttribut" dans la première Servlet
-                
+                request.setAttribute("somme", somme);
                 RequestDispatcher dispPdf = request.getRequestDispatcher("/pdf");
                 dispPdf.forward(request, response);
             }
             //Mais dans le cas contraire, lorsque le format ne vaut pas "pdf", on va écrire la somme en format HTML
             else{
-                RequestDispatcher dispPdf = request.getRequestDispatcher("/WEB-INF/affichage-somme.jsp");
-                dispPdf.forward(request, response);
+                //On passe directment 
+                response.setContentType("text/plain");
+                PrintWriter out = response.getWriter();
+                out.print(somme);
+                //RequestDispatcher dispPdf = request.getRequestDispatcher("/WEB-INF/affichage-somme.jsp");
+                //dispPdf.forward(request, response);
                 //response.setContentType("text/html;charset=UTF-8");
                 //On va ouvrir un "PrintWriter" pour écrire dans la réponse
                 //PrintWriter out = response.getWriter();
